@@ -39,14 +39,9 @@ public class User implements Serializable, UserDetails {
     private String email;
     private String cellPhoneNumber;
 
-    private String[] links;
+    private List<DoxLinks> links;
 
-//    private String twitch;
-//    private String youtube;
-//    private String instagram;
-//    private String twitterName;
-//    private String linkedinName;
-
+    private List<CostumeLinks> costumeLinks;
 
 
     @JsonIgnore

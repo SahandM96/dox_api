@@ -6,5 +6,7 @@ public enum DoxLinksSlang {
     YOUTUBE_LINK,
     SPOTIFY_LINK,
     SOUNDCLOUD_LINK,
+    INSTAGRAM_LINK,
+    LINKEDIN_NAME,
 
 }
