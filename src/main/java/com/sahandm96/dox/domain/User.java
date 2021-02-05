@@ -44,14 +44,15 @@ public class User implements Serializable, UserDetails {
     private List<CostumeLinks> costumeLinks;
 
 
-    @JsonIgnore
+//    @JsonIgnore
     private Boolean active = true;
-    @JsonIgnore
-    private String moaref;
+//    @JsonIgnore
+    private String affiliateCode;
     @JsonIgnore
     private Date createDate = new Date();
     @JsonIgnore
     private Date updateDate = new Date();
+
     @JsonIgnore
     private Date lastLogin = new Date();
 
