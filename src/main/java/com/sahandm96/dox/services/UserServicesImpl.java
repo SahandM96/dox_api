@@ -48,7 +48,7 @@ public class UserServicesImpl implements UserServices, UserDetailsService {
             api.send(sender, user.getUsername(), "به جمع کاربران رستوارن های روباه خوش آمدید");
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             List<Role> Auth = new ArrayList<>();
-            Auth.add(new Role(ERole.ROLE_ADMIN));
+            Auth.add(new Role(ERole.ROLE_ADMIN_MOD));
             user.setRoles(Auth);
 
             repo.save(user);
@@ -117,7 +117,7 @@ public class UserServicesImpl implements UserServices, UserDetailsService {
             localUser = this.repo.findByUsername(user.getUsername()).orElseThrow(() -> new UsernameNotFoundException("Not Found"));
             List<Role> Auth;
             Auth = user.getRoles();
-            Auth.add(new Role(ERole.ROLE_ADMIN));
+            Auth.add(new Role(ERole.ROLE_ADMIN_MOD));
             user.setRoles(Auth);
             this.repo.save(localUser);
             api.send(sender, user.getUsername(), "کاربر به روز رسانی شد");
@@ -174,8 +174,8 @@ public class UserServicesImpl implements UserServices, UserDetailsService {
             localUser = this.repo.findByUsername(user.getUsername()).orElseThrow(() -> new UsernameNotFoundException("Not Found"));
             List<Role> Auth;
             Auth = user.getRoles();
-            if (user.getRoles().contains(new Role(ERole.ROLE_ADMIN))) {
-                Auth.remove(new Role(ERole.ROLE_ADMIN));
+            if (user.getRoles().contains(new Role(ERole.ROLE_ADMIN_MOD))) {
+                Auth.remove(new Role(ERole.ROLE_ADMIN_MOD));
                 user.setRoles(Auth);
             }
             this.repo.save(localUser);
